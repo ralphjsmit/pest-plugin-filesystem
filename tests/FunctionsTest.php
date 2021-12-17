@@ -6,14 +6,16 @@ use function RalphJSmit\PestPluginFilesystem\expectFailedAssertion;
 use function RalphJSmit\PestPluginFilesystem\rmdir_recursive;
 
 it('can correctly expect exceptions', function () {
+    // The expectFailedAssertion() silences any failing exception
     expect(function () {
         expectFailedAssertion($this);
         expect(true)->toBeFalse();
-    }); // The expectFailedAssertion() silences any failing exception
+    });
 
+    // The expectFailedAssertion() doesn't silence any failing exception
     expect(function () {
         expect(true)->toBeFalse();
-    })->toThrow(AssertionFailedError::class); // The expectFailedAssertion() doesn't silence any failing exception
+    })->toThrow(AssertionFailedError::class);
 });
 
 it('can recursively remove folders', function () {
