@@ -22,7 +22,8 @@
         },
         "files": [
             "src/Autoload.php",
-            "src/Functions.php"
+            "src/Functions.php",
+            "src/Expectations.php"
         ]
     },
     "require-dev": {

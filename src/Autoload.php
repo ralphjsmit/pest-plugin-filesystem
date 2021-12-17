@@ -7,4 +7,3 @@ use Pest\Plugin;
 Plugin::uses(
     Methods::class
 );
-
