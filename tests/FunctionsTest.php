@@ -9,6 +9,7 @@ it('can recursively remove folders', function () {
 
     mkdir(__DIR__ . '/to-be-deleted-folder/child', 0777, true);
     file_put_contents(__DIR__ . '/to-be-deleted-folder/hello.txt', 'Hello!');
+    file_put_contents(__DIR__ . '/to-be-deleted-folder/child/hello.txt', 'Hello!');
 
     expect(__DIR__ . '/to-be-deleted-folder/hello.txt')
         ->toBeString()->toExist();
