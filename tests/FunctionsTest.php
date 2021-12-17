@@ -1,9 +1,23 @@
 <?php
 
+use PHPUnit\Framework\AssertionFailedError;
+
+use function RalphJSmit\PestPluginFilesystem\expectFailedAssertion;
 use function RalphJSmit\PestPluginFilesystem\rmdir_recursive;
 
+it('can correctly expect exceptions', function () {
+    expect(function () {
+        expectFailedAssertion($this);
+        expect(true)->toBeFalse();
+    }); // The expectFailedAssertion() silences any failing exception
+
+    expect(function () {
+        expect(true)->toBeFalse();
+    })->toThrow(AssertionFailedError::class); // The expectFailedAssertion() doesn't silence any failing exception
+});
+
 it('can recursively remove folders', function () {
-    if (file_exists(__DIR__ . '/to-be-deleted-folder/')) {
+    if ( file_exists(__DIR__ . '/to-be-deleted-folder/') ) {
         rmdir_recursive(__DIR__ . '/to-be-deleted-folder/child');
     }
 
