@@ -2,7 +2,7 @@
 
 namespace RalphJSmit\PestPluginFilesystem;
 
-trait FirstTrait
+trait Methods
 {
     public function example(string $name)
     {
