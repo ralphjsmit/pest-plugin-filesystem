@@ -1,5 +1,5 @@
 <?php
 
-use function Pest\PluginName\example;
+use function RalphJSmit\PestPluginFilesystem\example;
 
 example('foo');

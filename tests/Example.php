@@ -1,3 +1,4 @@
 <?php
 
-it('uses plugin')->example('foo');
+it('uses plugin')
+    ->example('foo');

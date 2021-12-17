@@ -1,7 +1,8 @@
 .idea/*
 .idea/codeStyleSettings.xml
 composer.lock
-/vendor/
+/vendor
+/vendor.nosync
 coverage.xml
 .phpunit.result.cache
 /.php-cs-fixer.php
