@@ -28,7 +28,7 @@ it('can recursively remove folders', function () {
     file_put_contents(__DIR__ . '/to-be-deleted-folder/child/hello.txt', 'Hello!');
 
     expect(__DIR__ . '/to-be-deleted-folder/hello.txt')
-        ->toBeString()->toExist();
+        ->toExist();
 
     rmdir_recursive(__DIR__ . '/to-be-deleted-folder');
 
