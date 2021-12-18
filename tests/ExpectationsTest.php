@@ -60,3 +60,38 @@ test('it can correctly determine if a file has certain contents', function () {
             ->not->toHaveContents('I\'m an empty file!');
     })->toThrow(AssertionFailedError::class);
 });
+
+test('it can correctly determine if a file is in a certain namespace', function () {
+    rm(__DIR__ . '/tmp/Models');
+    rm(__DIR__ . '/tmp/Support');
+    mkdir(__DIR__ . '/tmp/Models', 0777, true);
+    mkdir(__DIR__ . '/tmp/Support', 0777, true);
+
+    file_put_contents(__DIR__ . '/tmp/Models/User.php', '<?php namespace App\Models; ');
+    file_put_contents(__DIR__ . '/tmp/Models/MyModel.php', '<?php namespace App\Models; ');
+    file_put_contents(__DIR__ . '/tmp/Support/Helpers.php', '<?php namespace Support; ');
+
+    expect(__DIR__ . '/tmp/Models/User.php')->toHaveNamespace('App\Models');
+    expect(__DIR__ . '/tmp/Models/MyModel.php')->toHaveNamespace('App\Models');
+    expect(__DIR__ . '/tmp/Support/Helpers.php')->toHaveNamespace('Support');
+
+    expect(function () {
+        expect(__DIR__ . '/tmp/Models/User.php')
+            ->toHaveNamespace('Test\Models');
+    })->toThrow(AssertionFailedError::class);
+
+    expect(function () {
+        expect(__DIR__ . '/tmp/Models/User.php')
+            ->not->toHaveNamespace('App\Models');
+    })->toThrow(AssertionFailedError::class);
+
+    expect(function () {
+        expect(__DIR__ . '/tmp/Models/MyModel.php')
+            ->toHaveNamespace('Domain\Invoices\Models');
+    })->toThrow(AssertionFailedError::class);
+
+    expect(function () {
+        expect(__DIR__ . '/tmp/Support/Helpers.php')
+            ->toHaveContents('App\Models');
+    })->toThrow(AssertionFailedError::class);
+});
