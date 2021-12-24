@@ -3,6 +3,7 @@
 use PHPUnit\Framework\AssertionFailedError;
 use RalphJSmit\PestPluginFilesystem\Exceptions\FileNotFoundException;
 
+use function RalphJSmit\PestPluginFilesystem\contents;
 use function RalphJSmit\PestPluginFilesystem\expectFailedAssertion;
 use function RalphJSmit\PestPluginFilesystem\rm;
 use function RalphJSmit\PestPluginFilesystem\rmdir_recursive;
@@ -80,4 +81,13 @@ test('it can delete folders and files if they exist', function () {
         rm($files[4], false);
         expect(file_exists($files[4]))->toBeFalse();
     })->toThrow(FileNotFoundException::class);
+});
+
+test('it can return the contents of a file', function () {
+    rm(__DIR__ . '/tmp/test.php');
+    file_put_contents(__DIR__ . '/tmp/test.php', '<?php echo "Hello World!";');
+
+    expect(
+        contents(__DIR__ . '/tmp/test.php')
+    )->toBe('<?php echo "Hello World!";');
 });

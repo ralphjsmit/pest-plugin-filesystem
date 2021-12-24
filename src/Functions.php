@@ -43,3 +43,8 @@ function rmdir_recursive(string $dir): void
     }
     rmdir($dir);
 }
+
+function contents(string $path): string
+{
+    return file_get_contents($path);
+}
