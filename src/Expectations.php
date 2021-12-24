@@ -31,3 +31,9 @@ expect()->extend('toHaveNamespace', function (string $namespace) {
 
     return $this;
 });
+
+expect()->extend('contents', function () {
+    $this->value = file_get_contents($this->value);
+
+    return $this;
+});

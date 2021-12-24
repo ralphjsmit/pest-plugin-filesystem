@@ -92,6 +92,37 @@ test('it can correctly determine if a file is in a certain namespace', function 
 
     expect(function () {
         expect(__DIR__ . '/tmp/Support/Helpers.php')
-            ->toHaveContents('App\Models');
+            ->toHaveNamespace('App\Models');
+    })->toThrow(AssertionFailedError::class);
+});
+
+test('can correctly return file contents', function () {
+    rm(__DIR__ . '/tmp/Models');
+    rm(__DIR__ . '/tmp/Support');
+    mkdir(__DIR__ . '/tmp/Models', 0777, true);
+    mkdir(__DIR__ . '/tmp/Support', 0777, true);
+
+    file_put_contents(__DIR__ . '/tmp/Models/User.php', '<?php namespace App\Models; ');
+    file_put_contents(__DIR__ . '/tmp/Models/MyModel.php', '<?php namespace App\Models; ');
+    file_put_contents(__DIR__ . '/tmp/Support/Helpers.php', '<?php namespace Support; ');
+
+    expect(__DIR__ . '/tmp/Models/User.php')->contents->toBe('<?php namespace App\Models; ');
+    expect(__DIR__ . '/tmp/Models/MyModel.php')->contents->toBe('<?php namespace App\Models; ');
+    expect(__DIR__ . '/tmp/Support/Helpers.php')->contents->toBe('<?php namespace Support; ');
+
+    expect(__DIR__ . '/tmp/Models/User.php')->contents->not->toBe('<?php namespace App; ');
+    expect(__DIR__ . '/tmp/Models/MyModel.php')->contents->not->toBe('<?php namespace App; ');
+    expect(__DIR__ . '/tmp/Support/Helpers.php')->contents->not->toBe('<?php namespace App; ');
+
+    expect(function () {
+        expect(__DIR__ . '/tmp/Models/User.php')->contents->not->toBe('<?php namespace App\Models; ');
+    })->toThrow(AssertionFailedError::class);
+
+    expect(function () {
+        expect(__DIR__ . '/tmp/Models/MyModel.php')->contents->not->toBe('<?php namespace App\Models; ');
+    })->toThrow(AssertionFailedError::class);
+
+    expect(function () {
+        expect(__DIR__ . '/tmp/Support/Helpers.php')->contents->not->toBe('<?php namespace Support; ');
     })->toThrow(AssertionFailedError::class);
 });
