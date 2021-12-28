@@ -3,6 +3,7 @@
 namespace RalphJSmit\PestPluginFilesystem;
 
 use Illuminate\Support\Str;
+use Pest\HigherOrderExpectation;
 
 expect()->extend('toExist', function () {
     expect(
@@ -33,7 +34,5 @@ expect()->extend('toHaveNamespace', function (string $namespace) {
 });
 
 expect()->extend('contents', function () {
-    $this->value = file_get_contents($this->value);
-
-    return $this;
+    return new HigherOrderExpectation($this, file_get_contents($this->value));
 });
