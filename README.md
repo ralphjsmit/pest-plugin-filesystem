@@ -129,14 +129,11 @@ expect()->extend('toBeHello', function () {
 use function RalphJSmit\PestPluginFilesystem\expectFailedAssertion;
 
 // In your test
-expect('Hello there')->toBeHello();
+expect('Hello there')->toBeHello(); // This will pass
 
 expectFailedAssertion();
-expect('Bye')->toBeHello();
-
-// This test will pass
+expect('Bye')->toBeHello(); // This will pass
 
 expectFailedAssertion();
-expect('Hello there')->toBeHello();
-// This test will fail
+expect('Hello there')->toBeHello(); // This will fail
 ```
