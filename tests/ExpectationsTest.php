@@ -11,6 +11,10 @@ beforeEach(function () {
     }
 });
 
+beforeAll(function () {
+    mkdir(__DIR__ . '/tmp');
+});
+
 it('it can correctly determine if a file does exist', function () {
     file_put_contents(__DIR__ . '/test.php', 'I\'m a test file!');
 
