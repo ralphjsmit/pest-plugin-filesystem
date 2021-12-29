@@ -1,55 +1,46 @@
 {
-    "name": "ralphjsmit/pest-plugin-filesystem",
-    "description": "A Pest plugin that provides filesystem helpers.",
-    "keywords": [
-        "php",
-        "framework",
-        "pest",
-        "unit",
-        "test",
-        "testing",
-        "plugin"
-    ],
-    "license": "MIT",
-    "require": {
-        "php": "^8.0",
-        "illuminate/support": "^8.76",
-        "pestphp/pest": "^1.0",
-        "pestphp/pest-plugin": "^1.0"
+  "name": "ralphjsmit/pest-plugin-filesystem",
+  "description": "A Pest plugin that provides filesystem helpers.",
+  "keywords": [
+    "php",
+    "framework",
+    "pest",
+    "unit",
+    "test",
+    "testing",
+    "plugin"
+  ],
+  "license": "MIT",
+  "require": {
+    "php": "^8.0",
+    "illuminate/support": "^8.76",
+    "pestphp/pest": "^1.0",
+    "pestphp/pest-plugin": "^1.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "RalphJSmit\\PestPluginFilesystem\\": "src/"
     },
-    "autoload": {
-        "psr-4": {
-            "RalphJSmit\\PestPluginFilesystem\\": "src/"
-        },
-        "files": [
-            "src/Autoload.php",
-            "src/Functions.php",
-            "src/Expectations.php"
-        ]
-    },
-    "require-dev": {
-        "pestphp/pest-dev-tools": "dev-master"
-    },
-    "extra": {
-        "branch-alias": {
-            "dev-master": "1.x-dev"
-        }
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true,
-    "config": {
-        "sort-packages": true,
-        "preferred-install": "dist"
-    },
-    "scripts": {
-        "lint": "php-cs-fixer fix -v",
-        "test:lint": "php-cs-fixer fix -v --dry-run",
-        "test:types": "phpstan analyse --ansi",
-        "test:unit": "pest --colors=always",
-        "test": [
-            "@test:lint",
-            "@test:types",
-            "@test:unit"
-        ]
+    "files": [
+      "src/Autoload.php",
+      "src/Functions.php",
+      "src/Expectations.php"
+    ]
+  },
+  "require-dev": {
+    "pestphp/pest-dev-tools": "dev-master"
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "1.x-dev"
     }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "config": {
+    "sort-packages": true,
+    "preferred-install": "dist"
+  },
+  "scripts": {
+  }
 }
