@@ -14,7 +14,7 @@
   "require": {
     "php": "^8.0",
     "illuminate/support": "^8.76",
-    "pestphp/pest": "^1.0",
+    "pestphp/pest": "^1.17",
     "pestphp/pest-plugin": "^1.0"
   },
   "autoload": {
