@@ -115,7 +115,7 @@ test('can correctly return file contents', function () {
     dump(
         expect(__DIR__ . '/tmp/Models/User.php')->contents->toEqual('<?php namespace App\Models; ')
     );
-    expect(__DIR__ . '/tmp/Models/User.php')->contents->toBe('<?php namespace App\Models; ')->toBe(__DIR__ . '/tmp/Models/User.php');  // HigherOrderExpectation is reset after first expectation
+    expect(__DIR__ . '/tmp/Models/User.php')->contents->toBe('<?php namespace App\Models; ');
     expect(__DIR__ . '/tmp/Models/MyModel.php')->contents->toBe('<?php namespace App\Models; ');
     expect(__DIR__ . '/tmp/Support/Helpers.php')->contents->toBe('<?php namespace Support; ');
 
