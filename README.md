@@ -5,9 +5,9 @@ Testing with Pest is an absolute pleasure, but sometimes you just need that litt
 ## Contents
 
 1. Expectations
-    1. [expect(...)->toHaveContents()](expect-tohavecontents)
+    1. [expect(...)->toHaveContents()](#expect-tohavecontents)
     2. [expect(...)->toExist()](#expect-toexist)
-    3. [xpect(...)->toHaveNamespace()](#expect-tohavenamespace)
+    3. [expect(...)->toHaveNamespace()](#expect-tohavenamespace)
 2. Higher-order expectations
     1. [expect(...)->contents->toBe(...)](#expect-contents-tobe)
 3. Functions
