@@ -120,15 +120,23 @@ expect(true)->toBe(false);
 ```
 
 ```php
+// Somewhere
 expect()->extend('toBeHello', function () {
     return $this->toBe('Hello there');
 });
+```
+```php
+use function RalphJSmit\PestPluginFilesystem\expectFailedAssertion;
 
-
+// In your test
 expect('Hello there')->toBeHello();
 
 expectFailedAssertion();
 expect('Bye')->toBeHello();
 
 // This test will pass
+
+expectFailedAssertion();
+expect('Hello there')->toBeHello();
+// This test will fail
 ```
