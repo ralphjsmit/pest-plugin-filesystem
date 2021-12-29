@@ -82,7 +82,7 @@ file_put_contents(__DIR__ . '/tmp/fileB.php', 'I\'m a second test file!');
 
 ### rmdir_recursive($dir)
 
-This function recursively deletes folder, including its contents. Internally this is used by the `rm()` function
+This function recursively deletes a folder, including its contents. Internally this is used by the `rm()` function
 
 ```php
 use function RalphJSmit\PestPluginFilesystem\rmdir_recursive;
