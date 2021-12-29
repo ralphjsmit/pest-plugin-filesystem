@@ -124,11 +124,10 @@ expect(true)->toBe(false);
 expect()->extend('toBeHello', function () {
     return $this->toBe('Hello there');
 });
-```
-```php
-use function RalphJSmit\PestPluginFilesystem\expectFailedAssertion;
 
 // In your test
+use function RalphJSmit\PestPluginFilesystem\expectFailedAssertion;
+
 expect('Hello there')->toBeHello(); // This will pass
 
 expectFailedAssertion();
