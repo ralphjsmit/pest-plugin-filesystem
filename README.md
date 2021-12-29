@@ -1,4 +1,4 @@
-## This repository contains a set of handy filesystem helpers for your Pest tests.
+# Set of handy filesystem helpers for your Pest tests
 
 Testing with Pest is an absolute pleasure, but sometimes you just need that little bit extra. In my case, that extra was a set of expectations and functions to interact with the filesystem and make assertions on it. Below I made a list with all the helpers currently available. Enjoy!
 
