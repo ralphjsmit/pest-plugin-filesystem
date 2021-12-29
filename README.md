@@ -4,7 +4,17 @@ Testing with Pest is an absolute pleasure, but sometimes you just need that litt
 
 ## Contents
 
-1. expect(...)->toHaveContents()
+1. Expectations
+    1. [expect(...)->toHaveContents()](expect-tohavecontents)
+    2. [expect(...)->toExist()](#expect-toexist)
+    3. [xpect(...)->toHaveNamespace()](#expect-tohavenamespace)
+2. Higher-order expectations
+    1. [expect(...)->contents->toBe(...)](#expect-contents-tobe)
+3. Functions
+    1. [rm($path, $allowNonExisting)](#rmpath-allownonexisting)
+    2. [rmdir_recursive($dir)](#rmdir_recursivedir)
+    3. [contents($path)](#contentspath)
+    4. [expectFailedAssertion()](#expectfailedassertion)
 
 ## Expectations
 
@@ -58,6 +68,8 @@ expect(__DIR__ . '/tmp/fileA.php')
 Completely remove a file or directory.
 
 ```php
+use function RalphJSmit\PestPluginFilesystem\rm;
+
 rm('/tmp'); // Make sure that this file or directory doesn't exist
 
 file_put_contents(__DIR__ . '/tmp/fileA.php', 'I\'m a test file!');
@@ -71,6 +83,8 @@ file_put_contents(__DIR__ . '/tmp/fileB.php', 'I\'m a second test file!');
 This function recursively deletes folder, including its contents. Internally this is used by the `rm()` function
 
 ```php
+use function RalphJSmit\PestPluginFilesystem\rmdir_recursive;
+
 rmdir_recursive('/tmp'); // Recursively remove this directory
 ```
 
@@ -79,6 +93,8 @@ rmdir_recursive('/tmp'); // Recursively remove this directory
 Gets the file contents of a certain file. Its simply a shorter wrapper for `file_get_contents()`.
 
 ```php
+use function RalphJSmit\PestPluginFilesystem\contents;
+
 $contents = contents(__DIR__ . '/tmp/fileA.php');
 
 expect(
@@ -90,11 +106,13 @@ expect(
 
 ### expectFailedAssertion()
 
-> Note that this helpers will be added to another package soon and thus be removed here.
+> Note that this helper will be added to another package soon and thus be removed here.
 
 Expect an failed assertion. Helpful for testing your own custom Pest assertions.
 
 ```php
+use function RalphJSmit\PestPluginFilesystem\expectFailedAssertion;
+
 expectFailedAssertion();
 expect(true)->toBe(false);
 
