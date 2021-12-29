@@ -106,15 +106,6 @@ test('can correctly return file contents', function () {
     file_put_contents(__DIR__ . '/tmp/Models/MyModel.php', '<?php namespace App\Models; ');
     file_put_contents(__DIR__ . '/tmp/Support/Helpers.php', '<?php namespace Support; ');
 
-    dump(
-        expect(__DIR__ . '/tmp/Models/User.php')
-    );
-    dump(
-        expect(__DIR__ . '/tmp/Models/User.php')->contents
-    );
-    dump(
-        expect(__DIR__ . '/tmp/Models/User.php')->contents->toEqual('<?php namespace App\Models; ')
-    );
     expect(__DIR__ . '/tmp/Models/User.php')->contents->toBe('<?php namespace App\Models; ');
     expect(__DIR__ . '/tmp/Models/MyModel.php')->contents->toBe('<?php namespace App\Models; ');
     expect(__DIR__ . '/tmp/Support/Helpers.php')->contents->toBe('<?php namespace Support; ');
