@@ -52,7 +52,7 @@ expect(__DIR__ . '/tmp/fileA.php')->toHaveNamespace('App\Models');
 
 ### expect(...)->contents->toBe(...)
 
-Make assertions on the content of a file:
+Make assertions on the contents of a file:
 
 ```php
 file_put_contents(__DIR__ . '/tmp/fileA.php', 'I\'m a test file!');
@@ -67,12 +67,12 @@ expect(__DIR__ . '/tmp/fileA.php')
 
 ### rm($path, $allowNonExisting)
 
-Completely remove a file or directory.
+Completely remove a file or directory:
 
 ```php
 use function RalphJSmit\PestPluginFilesystem\rm;
 
-rm('/tmp'); // Make sure that this file or directory doesn't exist
+rm(__DIR__ . '/tmp'); // Make sure that this file or directory doesn't exist
 
 file_put_contents(__DIR__ . '/tmp/fileA.php', 'I\'m a test file!');
 file_put_contents(__DIR__ . '/tmp/fileB.php', 'I\'m a second test file!');
@@ -82,22 +82,19 @@ file_put_contents(__DIR__ . '/tmp/fileB.php', 'I\'m a second test file!');
 
 ### rmdir_recursive($dir)
 
-This function recursively deletes a folder, including its contents. Internally this is used by the `rm()` function
+This function recursively deletes a folder, including its contents. Internally this is used by the `rm()` function:
 
 ```php
 use function RalphJSmit\PestPluginFilesystem\rmdir_recursive;
 
-rmdir_recursive('/tmp'); // Recursively remove this directory
+rmdir_recursive(__DIR__ . '/tmp'); // Recursively remove this directory
 ```
 
 ### contents($path)
 
-Gets the file contents of a certain file. Its simply a shorter wrapper for `file_get_contents()`.
-
+Gets the file contents of a certain file. Its simply a shorter wrapper for `file_get_contents()`:
 ```php
 use function RalphJSmit\PestPluginFilesystem\contents;
-
-$contents = contents(__DIR__ . '/tmp/fileA.php');
 
 expect(
     contents(__DIR__ . '/tmp/fileA.php')
@@ -110,7 +107,7 @@ expect(
 
 > Note that this helper will be added to another package soon and thus be removed here.
 
-Expect an failed assertion. Helpful for testing your own custom Pest assertions.
+Expect a failed assertion. Helpful for testing your own custom Pest assertions:
 
 ```php
 use function RalphJSmit\PestPluginFilesystem\expectFailedAssertion;
