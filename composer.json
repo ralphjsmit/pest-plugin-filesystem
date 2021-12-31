@@ -1,6 +1,6 @@
 {
   "name": "ralphjsmit/pest-plugin-filesystem",
-  "description": "A Pest plugin that provides filesystem helpers.",
+  "description": "A set of handy filesystem testing helpers for Pest.",
   "keywords": [
     "php",
     "framework",
