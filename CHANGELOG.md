@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## 1.0.3 - 2022-01-01
+
+- Fixed: recursively deleting non-empty directories failed in some cases
+
 ## 1.0.2 - 2021-12-30
 
 - Update readme
