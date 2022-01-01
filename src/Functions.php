@@ -41,7 +41,7 @@ function rmdir_recursive(string $dir): void
             unlink("$dir/$file");
         }
     }
-    rmdir_recursive($dir);
+    rmdir($dir);
 }
 
 function contents(string $path): string
