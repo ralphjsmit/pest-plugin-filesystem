@@ -12,7 +12,9 @@ beforeEach(function () {
 });
 
 beforeAll(function () {
-    mkdir(__DIR__ . '/tmp');
+    if ( ! file_exists(__DIR__ . '/tmp') ) {
+        mkdir(__DIR__ . '/tmp');
+    }
 });
 
 it('it can correctly determine if a file does exist', function () {
