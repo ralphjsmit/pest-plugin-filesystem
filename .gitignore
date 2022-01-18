@@ -10,5 +10,6 @@ coverage.xml
 .temp/coverage.php
 *.swp
 *.swo
+.DS_Store
 
 /tests/tmp
