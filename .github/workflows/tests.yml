@@ -1,6 +1,10 @@
 name: "Run Tests"
 
-on: [ 'push', 'pull_request' ]
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 jobs:
   ci:
@@ -13,9 +17,9 @@ jobs:
         dependency-version: [ prefer-lowest, prefer-stable ]
         include:
           - laravel: 9.*
-            testbench: 7.*
+            testbench: ^7.0
           - laravel: 8.*
-            testbench: 6.*
+            testbench: ^6.23
 
     
     name: PHP ${{ matrix.php }} - Laravel ${{ matrix.laravel }} - ${{ matrix.dependency-version }} - ${{ matrix.os }}
