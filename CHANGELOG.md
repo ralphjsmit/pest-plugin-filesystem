@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## 1.1.0 - 2022-01-20
+
+- Add Laravel 9 support
+
 ## 1.0.4 - 2022-01-01
 
 - Fixed: undo previous fix as it caused memory issues
