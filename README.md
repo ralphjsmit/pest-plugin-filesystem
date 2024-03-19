@@ -2,7 +2,8 @@
 
 Testing with Pest is an absolute pleasure, but sometimes you just need that little bit extra. In my case, that extra was a set of expectations and functions to interact with the filesystem and make assertions on it. Below I made a list with all the helpers currently available. Enjoy!
 
-[![Run Tests](https://github.com/ralphjsmit/pest-plugin-filesystem/actions/workflows/tests.yml/badge.svg?event=push)](https://github.com/ralphjsmit/pest-plugin-filesystem/actions/workflows/tests.yml)
+> [!IMPORTANT]  
+> This package will only work for Pest V1 and not for Pest V2.
 
 ## Contents
 
