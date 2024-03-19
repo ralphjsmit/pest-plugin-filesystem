@@ -2,4 +2,8 @@
 
 namespace RalphJSmit\PestPluginFilesystem\Exceptions;
 
-class FileNotFoundException extends \RuntimeException { }
+use RuntimeException;
+
+class FileNotFoundException extends RuntimeException
+{
+}

@@ -6,13 +6,13 @@ use function RalphJSmit\PestPluginFilesystem\expectFailedAssertion;
 use function RalphJSmit\PestPluginFilesystem\rm;
 
 beforeEach(function () {
-    if ( file_exists(__DIR__ . '/test.php') ) {
+    if (file_exists(__DIR__ . '/test.php')) {
         unlink(__DIR__ . '/test.php');
     }
 });
 
 beforeAll(function () {
-    if ( ! file_exists(__DIR__ . '/tmp') ) {
+    if (! file_exists(__DIR__ . '/tmp')) {
         mkdir(__DIR__ . '/tmp');
     }
 });
