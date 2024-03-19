@@ -13,13 +13,13 @@ function expectFailedAssertion(TestCase $testCase): void
 
 function rm(string $path, bool $allowNonExisting = true): void
 {
-    if ( ! file_exists($path) ) {
+    if (! file_exists($path)) {
         $allowNonExisting ?: throw new FileNotFoundException();
 
         return;
     }
 
-    if ( is_dir($path) ) {
+    if (is_dir($path)) {
         rmdir_recursive($path);
 
         return;
@@ -31,14 +31,14 @@ function rm(string $path, bool $allowNonExisting = true): void
 function rmdir_recursive(string $dir): void
 {
     foreach (scandir($dir) as $file) {
-        if ( '.' === $file || '..' === $file ) {
+        if ($file === '.' || $file === '..') {
             continue;
         }
 
-        if ( is_dir("$dir/$file") ) {
-            rmdir_recursive("$dir/$file");
+        if (is_dir("{$dir}/{$file}")) {
+            rmdir_recursive("{$dir}/{$file}");
         } else {
-            unlink("$dir/$file");
+            unlink("{$dir}/{$file}");
         }
     }
     rmdir($dir);

@@ -22,7 +22,7 @@ it('can correctly expect exceptions', function () {
 });
 
 it('can recursively remove folders', function () {
-    if ( file_exists(__DIR__ . '/to-be-deleted-folder/') ) {
+    if (file_exists(__DIR__ . '/to-be-deleted-folder/')) {
         rmdir_recursive(__DIR__ . '/to-be-deleted-folder/child');
     }
 
@@ -49,7 +49,7 @@ test('it can delete folders and files if they exist', function () {
     ];
 
     foreach ($files as $file) {
-        if ( file_exists($file) ) {
+        if (file_exists($file)) {
             is_dir($file) ? rmdir_recursive($file) : unlink($file);
         }
         expect(file_exists($file))->toBeFalse();
